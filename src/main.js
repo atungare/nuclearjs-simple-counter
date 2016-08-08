@@ -6,7 +6,7 @@ import CounterStore from 'stores/CounterStore.js';
 import App from './components/App.js'
 
 reactor.registerStores({
-  'count': CounterStore
+  'counters': CounterStore
 });
 
 ReactDOM.render(

@@ -9,14 +9,14 @@ const App = React.createClass({
 
   getDataBindings() {
     return {
-      count: getters.count
+      counters: getters.counters
     }
   },
 
   render() {
-    let counters = this.state.count.map((count, counter_id) => {
+    let counters = this.state.counters.map((counter_data, counter_id) => {
       return (
-        <Counter identifier={counter_id} />
+        <Counter counterId={counter_id} counterData={counter_data} />
       )
     });
 

@@ -5,8 +5,8 @@ const Counter = React.createClass({
   render() {
     return (
       <div>
-        <CounterDisplay identifier={ this.props.identifier }/>
-        <CounterButtons identifier={ this.props.identifier }/>
+        <CounterDisplay counterData={ this.props.counterData }/>
+        <CounterButtons counterId={ this.props.counterId }/>
       </div>
     )
   }

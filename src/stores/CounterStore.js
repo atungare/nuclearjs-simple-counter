@@ -10,8 +10,8 @@ const CounterStore = Store({
   initialize() {
     this.on(action_types.REGISTER_COUNTER, registerCounter);
     this.on(action_types.DEREGISTER_COUNTER, deregisterCounter);
-    this.on(action_types.PLUS, addToNumber);
-    this.on(action_types.MINUS, subtractFromNumber);
+    this.on(action_types.PLUS, addToCounter);
+    this.on(action_types.MINUS, subtractFromCounter);
   }
 });
 
@@ -23,11 +23,11 @@ function deregisterCounter (state, counter_id) {
   return state.delete(counter_id);
 }
 
-function addToNumber (state, { counter_id, value }) {
+function addToCounter (state, { counter_id, value }) {
   return state.updateIn([counter_id], old_val => old_val + value);
 }
 
-function subtractFromNumber (state, { counter_id, value }) {
+function subtractFromCounter (state, { counter_id, value }) {
   return state.updateIn([counter_id], old_val => old_val - value);
 }
 

@@ -1,3 +1,3 @@
-const count = ['count'];
+const counters = ['counters'];
 
-export default { count }
+export default { counters }
