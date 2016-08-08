@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   entry: {
     'bundle': './src/main.js',
@@ -19,4 +21,10 @@ module.exports = {
       }
     ]
   },
-}
+
+  plugins: [
+    new webpack.ProvidePlugin({
+        React: 'react'
+    }),
+  ]
+};
