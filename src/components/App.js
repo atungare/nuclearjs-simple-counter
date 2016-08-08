@@ -16,7 +16,7 @@ const App = React.createClass({
   render() {
     let counters = this.state.counters.map((counter_data, counter_id) => {
       return (
-        <Counter counterId={counter_id} counterData={counter_data} />
+        <Counter key={counter_id} counterData={counter_data} />
       )
     });
 

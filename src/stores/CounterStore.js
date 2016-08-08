@@ -4,7 +4,7 @@ import action_types from '../action_types.js';
 
 const CounterStore = Store({
   getInitialState() {
-    return toImmutable({});
+    return toImmutable([]);
   },
 
   initialize() {
@@ -15,20 +15,27 @@ const CounterStore = Store({
   }
 });
 
+function findByCounterId (state, counter_id) {
+  return state.findIndex((counter) => counter.get('counter_id') === counter_id);
+}
+
 function registerCounter (state, counter_id) {
-  return state.set(counter_id, 0);
+  return state.push(toImmutable({counter_id, value: 0}));
 }
 
 function deregisterCounter (state, counter_id) {
-  return state.delete(counter_id);
+  let index = findByCounterId(state, counter_id);
+  return state.delete(index);
 }
 
-function addToCounter (state, { counter_id, value }) {
-  return state.updateIn([counter_id], old_val => old_val + value);
+function addToCounter (state, { counter_id, update }) {
+  let index = findByCounterId(state, counter_id);
+  return state.updateIn([index, 'value'], old_val => old_val + update);
 }
 
-function subtractFromCounter (state, { counter_id, value }) {
-  return state.updateIn([counter_id], old_val => old_val - value);
+function subtractFromCounter (state, { counter_id, update }) {
+  let index = findByCounterId(state, counter_id);
+  return state.updateIn([index, 'value'], old_val => old_val - update);
 }
 
 export default CounterStore;

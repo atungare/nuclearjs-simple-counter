@@ -12,15 +12,15 @@ const CounterButtons = React.createClass({
   },
 
   increment() {
-    return actions.plusOne(this.props.counterId);
+    return actions.plusOne(this.props.counterData.get('counter_id'));
   },
 
   decrement() {
-    return actions.minusOne(this.props.counterId);
+    return actions.minusOne(this.props.counterData.get('counter_id'));
   },
 
   remove() {
-    return actions.deregisterCounter(this.props.counterId);
+    return actions.deregisterCounter(this.props.counterData.get('counter_id'));
   }
 });
 

@@ -6,7 +6,7 @@ const Counter = React.createClass({
     return (
       <div>
         <CounterDisplay counterData={ this.props.counterData }/>
-        <CounterButtons counterId={ this.props.counterId }/>
+        <CounterButtons counterData={ this.props.counterData }/>
       </div>
     )
   }
