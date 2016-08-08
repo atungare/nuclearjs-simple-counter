@@ -1,3 +1,4 @@
+var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
@@ -26,5 +27,12 @@ module.exports = {
     new webpack.ProvidePlugin({
         React: 'react'
     }),
-  ]
+  ],
+
+  resolve: {
+    root: [
+      path.resolve('./node_modules'),
+      path.resolve('./src')
+    ]
+  }
 };

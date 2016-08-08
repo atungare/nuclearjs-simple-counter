@@ -1,12 +1,16 @@
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 
-let hello = (
+import Counter from 'components/Counter.js';
+
+let counters = (
   <div>
-    <h1>Hello World!</h1>
+    <Counter />
+    <Counter />
+    <Counter />
   </div>
-)
+);
 
 ReactDOM.render(
-  hello,
+  counters,
   document.getElementById('flux-app')
 );
