@@ -1,14 +1,27 @@
-let CounterDisplay = React.createClass({
+import reactor from '../reactor.js';
+import actions from '../actions.js';
+import getters from '../getters.js';
+
+const CounterDisplay = React.createClass({
+
+  mixins: [reactor.ReactMixin],
+
+  getDataBindings() {
+    return {
+      count: getters.count
+    }
+  },
+
   render() {
     return (
       <div>
-        <h3>{ 10 }</h3>
+        <h3>{ this.state.count }</h3>
       </div>
     )
   }
 });
 
-let CounterButtons = React.createClass({
+const CounterButtons = React.createClass({
   render() {
     return (
       <div>
@@ -18,17 +31,13 @@ let CounterButtons = React.createClass({
     )
   },
 
-  increment() {
+  increment: actions.plusOne,
 
-  },
-
-  decrement() {
-
-  }
+  decrement: actions.minusOne
 
 });
 
-let Counter = React.createClass({
+const Counter = React.createClass({
   render() {
     return (
       <div>

@@ -1,11 +1,16 @@
 import ReactDOM from 'react-dom';
 
+import reactor from './reactor';
+import CounterStore from 'stores/CounterStore.js';
+
 import Counter from 'components/Counter.js';
 
-let counters = (
+reactor.registerStores({
+  'count': CounterStore
+});
+
+const counters = (
   <div>
-    <Counter />
-    <Counter />
     <Counter />
   </div>
 );
