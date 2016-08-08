@@ -1,9 +1,15 @@
+import uuid from 'uuid';
+
 import reactor from './reactor.js';
 import action_types from './action_types.js';
 
 const actions = {
-  registerCounter(counter_id) {
-    reactor.dispatch(action_types.REGISTER_COUNTER, counter_id)
+  addCounter() {
+    reactor.dispatch(action_types.REGISTER_COUNTER, uuid.v1());
+  },
+
+  deregisterCounter(counter_id) {
+    reactor.dispatch(action_types.DEREGISTER_COUNTER, counter_id);
   },
 
   plusOne(counter_id) {

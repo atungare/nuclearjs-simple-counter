@@ -1,14 +1,29 @@
+import reactor from '../reactor.js';
+import getters from '../getters.js';
+
+import Header from 'components/Header.js';
 import Counter from 'components/Counter.js';
-import actions from '../actions.js';
 
 const App = React.createClass({
+  mixins: [reactor.ReactMixin],
+
+  getDataBindings() {
+    return {
+      count: getters.count
+    }
+  },
+
   render() {
-    actions.registerCounter('one');
-    actions.registerCounter('two');
+    let counters = this.state.count.map((count, counter_id) => {
+      return (
+        <Counter identifier={counter_id} />
+      )
+    });
+
     return (
       <div>
-        <Counter identifier="one"/>
-        <Counter identifier="two"/>
+        <Header />
+        {counters}
       </div>
     )
   }

@@ -6,6 +6,7 @@ const CounterButtons = React.createClass({
       <div>
         <button onClick={ this.increment }>Increase</button>
         <button onClick={ this.decrement }>Decrease</button>
+        <button onClick={ this.remove }>Remove</button>
       </div>
     )
   },
@@ -14,8 +15,12 @@ const CounterButtons = React.createClass({
     return actions.plusOne(this.props.identifier);
   },
 
-  decrement(){
+  decrement() {
     return actions.minusOne(this.props.identifier);
+  },
+
+  remove() {
+    return actions.deregisterCounter(this.props.identifier);
   }
 });
 
