@@ -14,7 +14,7 @@ const CounterDisplay = React.createClass({
   render() {
     return (
       <div>
-        <h3>{ this.state.count }</h3>
+        <h3>{ this.state.count.get(this.props.identifier) }</h3>
       </div>
     )
   }

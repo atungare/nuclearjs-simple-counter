@@ -10,9 +10,13 @@ const CounterButtons = React.createClass({
     )
   },
 
-  increment: actions.plusOne,
+  increment() {
+    return actions.plusOne(this.props.identifier);
+  },
 
-  decrement: actions.minusOne
+  decrement(){
+    return actions.minusOne(this.props.identifier);
+  }
 });
 
 export default CounterButtons;
